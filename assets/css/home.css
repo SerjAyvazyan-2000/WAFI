@@ -128,7 +128,7 @@ header{
 
 .home-main-active .hide-header {
     transform: translateY(-100%);
-    transition: 2.0s;
+    transition: 1.0s;
 }
 
 

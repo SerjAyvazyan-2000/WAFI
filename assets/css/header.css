@@ -238,7 +238,7 @@ header {
         width: 100%;
         position: fixed;
         z-index: 99999;
-        top:-1000%;
+        top:-2000%;
         right: 0;
         transition: .3s;
         height: 100vh;
