@@ -197,6 +197,11 @@ $('.open_modal').on('click', function () {
     modal.removeClass('out');
     modal.fadeIn();
 });
+$(document).on('keydown', function (e) {
+    if (e.key === 'Escape' || e.keyCode === 27) {
+        $('.modal:visible').fadeOut().addClass('out');
+    }
+});
 $('.close').on('click', function () {
     let prt = $(this).parents('.modal');
     prt.addClass('out')
@@ -241,6 +246,11 @@ $('.open-gallery').on('click', function (){
     $('.gallery-box').addClass('gallery-box-active')
 })
 
+$(document).on('keydown', function (e) {
+    if (e.key === 'Escape' || e.keyCode === 27) {
+        $('.gallery-box').removeClass('gallery-box-active');
+    }
+});
 
 $('.go-back').on('click', function (){
     $('.gallery-box').removeClass('gallery-box-active')
