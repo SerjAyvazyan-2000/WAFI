@@ -665,10 +665,9 @@ a[href^="tel"] {
     border-radius: 50%;
     cursor: pointer;
     transition:  0.3s;
+
 }
-.architecture-arrow:hover{
-    opacity: .7;
-}
+
 .icon-arrow-top{
     content: url("../img/arrow-top.svg");
     width: 24px;
@@ -766,6 +765,9 @@ a[href^="tel"] {
 .great-option-href{
     position: relative;
     cursor: pointer;
+}
+.great-option-href:hover .architecture-arrow{
+    transform: scale(1.3);
 }
 .great-option-href h2{
     color: #FFFFFF;

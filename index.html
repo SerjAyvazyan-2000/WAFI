@@ -1509,7 +1509,11 @@
                         <div class="modal-inp">
                             <label>
                                 <input type="text" id="name" name="name" placeholder="Как вас зовут?"
-                                       onfocus="this.placeholder = ''">
+                                       onfocus="this.placeholder = ''"
+                                       onblur="if (this.value === '') this.placeholder = 'Как вас зовут?';">
+
+                                >
+
 
                             </label>
                         </div>
@@ -1622,7 +1626,11 @@
 
         const swiper = new Swiper('.slideLab-slider', {
             direction: 'vertical',
-            mousewheel: true,
+            mousewheel: {
+                forceToAxis: true,
+                sensitivity: 1,
+                releaseOnEdges: false
+            },
             slidesPerView: 1,
             speed: 800,
             on: {
