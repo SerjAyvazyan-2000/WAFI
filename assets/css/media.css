@@ -655,7 +655,7 @@
 
 @media (max-width: 1025px) {
     html {
-        scroll-behavior: smooth;
+        scroll-behavior: auto;
     }
 
     .first-business-name h4:before {

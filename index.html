@@ -1571,30 +1571,35 @@
         function initMap(mapElement, mapId) {
             const map = new YMap(mapElement, {
                 location: {
-                    center: [37.732744, 55.818970], // Москва, Тагильская, владение 4
+                    center: [37.757319, 55.814643], // ✅ Точные координаты, как ты прислал
                     zoom: 16
                 },
                 behaviors: ['default', 'scrollZoom']
 
             });
 
-            map.addChild(new YMapDefaultSchemeLayer({
-                theme: "dark"
-            }));
+
+            map.addChild(new YMapDefaultSchemeLayer({ theme: 'dark' }));
+
+            map.addChild(new YMapDefaultFeaturesLayer());
 
             const markerElement = document.createElement('img');
             markerElement.src = './assets/img/location.png'; // сюда вставь свою иконку
             markerElement.style.width = '40px';
             markerElement.style.height = '40px';
 
-            const marker = new YMapMarker({ coordinates: [37.732744, 55.818970] }, markerElement);
+            const marker = new YMapMarker({ coordinates: [37.757319, 55.814643] }, markerElement);
             map.addChild(marker);
 
-            // Отключаем возможность перемещения карты
-            map.behaviors.disable('drag');
+            // // Отключаем возможность перемещения карты
+            // map.behaviors.disable('drag');
+            //
+            // // Отключаем возможность зума карты
+            // map.behaviors.disable('scrollZoom');
 
-            // Отключаем возможность зума карты
-            map.behaviors.disable('scrollZoom');
+
+            map.behaviors.enable('drag');
+            map.behaviors.enable('scrollZoom');
         }
 
         // Находим все элементы с классом 'map' и инициализируем карты
@@ -1652,6 +1657,10 @@
                 });
             });
     });
+
+
+
+
 </script>
 
 
@@ -1707,3 +1716,6 @@
 
 </body>
 </html>
+
+
+
