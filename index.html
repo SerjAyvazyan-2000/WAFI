@@ -988,7 +988,7 @@
                 </div>
             </div>
             <div class=" menu">
-                <a href="#business-cent" class="about-business G-center scroll-to">
+                <a data-slide="2,3" href="#business-cent" class="about-business G-center scroll-to">
                     <p>Узнать больше о бизнесс центре</p>
                 </a>
             </div>
@@ -1621,7 +1621,7 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        const menuLinks = document.querySelectorAll('.menu li a');
+        const menuLinks = document.querySelectorAll('.menu a');
 
         const swiper = new Swiper('.slideLab-slider', {
             direction: 'vertical',
@@ -1648,16 +1648,31 @@
 
 
 
+        // function updateActiveMenu(index) {
+        //     document.querySelectorAll('.menu li').forEach(li => li.classList.remove('active-menu'));
+        //
+        //     menuLinks.forEach(link => {
+        //         const slides = link.getAttribute('data-slide').split(',').map(Number);
+        //         if (slides.includes(index)) {
+        //             link.parentElement.classList.add('active-menu');
+        //         }
+        //     });
+        // }
+
         function updateActiveMenu(index) {
+            // Сначала убираем класс active-menu со всех пунктов меню
             document.querySelectorAll('.menu li').forEach(li => li.classList.remove('active-menu'));
 
-            menuLinks.forEach(link => {
+            // Перебираем ссылки в меню и ищем подходящую по data-slide
+            document.querySelectorAll('.menu li a').forEach(link => {
                 const slides = link.getAttribute('data-slide').split(',').map(Number);
                 if (slides.includes(index)) {
-                    link.parentElement.classList.add('active-menu');
+                    link.parentElement.classList.add('active-menu'); // ✅ Добавляем active-menu на <li>
                 }
             });
         }
+
+
 
         const arrowLinks = document.querySelectorAll('.btn-arrow');
 
@@ -1666,6 +1681,18 @@
                 e.preventDefault();
                 const slideIndex = Number(this.getAttribute('data-slide'));
                 swiper.slideTo(slideIndex);
+                updateActiveMenu(slideIndex);
+            });
+        });
+
+        document.querySelectorAll('[data-slide]').forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                const slideData = this.getAttribute('data-slide').split(',');
+                const slideIndex = Number(slideData[0]);
+
+                swiper.slideTo(slideIndex);
+
                 updateActiveMenu(slideIndex);
             });
         });
