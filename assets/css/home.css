@@ -499,6 +499,8 @@ h1{
     left: 0;
     width: 100%;
     transition: 0.3s;
+    z-index: 10;
+    cursor: pointer;
 }
 .about-business:hover{
     background: #46515D66;
@@ -662,6 +664,10 @@ a[href^="tel"] {
     right: 12px;
     border-radius: 50%;
     cursor: pointer;
+    transition:  0.3s;
+}
+.architecture-arrow:hover{
+    opacity: .7;
 }
 .icon-arrow-top{
     content: url("../img/arrow-top.svg");

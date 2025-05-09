@@ -238,10 +238,10 @@ header {
         width: 100%;
         position: fixed;
         z-index: 99999;
-        top: 0;
+        top:-1000%;
         right: 0;
-        transition: 1.1s;
-        height: 0;
+        transition: .3s;
+        height: 100vh;
         overflow: hidden;
         background-image: url("../img/tagilskaya-fon.png");
         background-size: cover;
@@ -252,11 +252,11 @@ header {
         background-position: center;
     }
 
+
     .transition-menu {
-        height: 100vh;
-        -webkit-transition: all 1.1s ease 0s;
-        -o-transition: all 1.1s ease 0s;
-        transition: all 1.1s ease 0s;
+        top:0;
+        transition: .3s;
+
     }
 
     .mobile-menu ul {
@@ -272,7 +272,7 @@ header {
         padding: 24px 36px;
         max-width: 400px;
         width: 100%;
-        margin-bottom: 40px;
+        margin-bottom: 70px;
 
     }
 

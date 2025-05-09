@@ -86,12 +86,38 @@ document.querySelectorAll('[data-slide]').forEach(link => {
 const innerSwiper = new Swiper('.renowned-slider', {
     direction: 'vertical',
     nested: true,
-    mousewheel: true,
+    mousewheel: false,
+
     speed: 600,
     slidesPerView: 3,
     on: {
+        init: function () {
+            const container = this.el;
+            container.addEventListener('mouseenter', () => {
+                this.mousewheel.enable();
+
+                container.addEventListener('wheel', preventPageScroll, { passive: false });
+            });
+
+            container.addEventListener('mouseleave', () => {
+                this.mousewheel.disable();
+
+                container.removeEventListener('wheel', preventPageScroll, { passive: false });
+            });
+
+            container.addEventListener('touchstart', () => {
+                this.mousewheel.enable();
+            });
+
+            container.addEventListener('touchend', () => {
+                this.mousewheel.disable();
+            });
+
+            function preventPageScroll(e) {
+                e.preventDefault();
+            }
+        },
         slideChange: function () {
-            // Убираем возможность листать внешний слайдер, если не в начале или не в конце
             if (!this.isBeginning && !this.isEnd) {
                 slideSwiper.allowSlideNext = false;
                 slideSwiper.allowSlidePrev = false;
