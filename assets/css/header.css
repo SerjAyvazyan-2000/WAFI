@@ -9,6 +9,10 @@ header {
 
 }
 
+header.header-show  {
+    transform: translateY(0);
+}
+
 .header-main {
     padding: 45px 0;
     border-bottom: 1px solid #FFFFFF59;
@@ -240,7 +244,7 @@ header {
         z-index: 99999;
         top:-2000%;
         right: 0;
-        transition: .3s;
+        transition: 1s;
         height: 100vh;
         overflow: hidden;
         background-image: url("../img/tagilskaya-fon.png");
@@ -255,7 +259,7 @@ header {
 
     .transition-menu {
         top:0;
-        transition: .3s;
+        transition: 1s;
 
     }
 

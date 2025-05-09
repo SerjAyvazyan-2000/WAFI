@@ -1,12 +1,21 @@
 window.addEventListener('load', function() {
     window.scrollTo(0, 0);
 });
+
+
 $(document).ready(function () {
     setTimeout(function () {
         $(".tagilskaya-sec").addClass("tagilskaya-act");
     }, 800);
+
     setTimeout(function () {
         $(".home-page").addClass("home-main-active");
+
+        // Через 600 мс после появления контента — плавное появление хедера
+        setTimeout(function () {
+            $("header").addClass("header-show");
+        }, 900);
+
     }, 4000);
 });
 
