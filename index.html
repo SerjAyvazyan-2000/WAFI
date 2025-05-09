@@ -1510,9 +1510,8 @@
                             <label>
                                 <input type="text" id="name" name="name" placeholder="Как вас зовут?"
                                        onfocus="this.placeholder = ''"
-                                       onblur="if (this.value === '') this.placeholder = 'Как вас зовут?';">
+                                       onblur="if (this.value === '') this.placeholder = 'Как вас зовут?'">
 
-                                >
 
 
                             </label>
@@ -1626,11 +1625,7 @@
 
         const swiper = new Swiper('.slideLab-slider', {
             direction: 'vertical',
-            mousewheel: {
-                forceToAxis: true,
-                sensitivity: 1,
-                releaseOnEdges: false
-            },
+            mousewheel: true,
             slidesPerView: 1,
             speed: 800,
             on: {
